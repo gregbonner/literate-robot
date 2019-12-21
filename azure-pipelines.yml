@@ -24,9 +24,11 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
-- task: PublishBuildArtifacts@1
-  displayName: 'Copy artifacts'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+- task: AzureWebApp@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    azureSubscription: 'Visual Studio Enterprise(d3f74c94-9e59-439e-875e-f64fc777bc96)'
+    appType: 'webApp'
+    appName: 'amcos-sandbox'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
