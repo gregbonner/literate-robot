@@ -12,6 +12,15 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: restore
+    projects: '**/*.csproj'
+    feedsToUse: config
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
