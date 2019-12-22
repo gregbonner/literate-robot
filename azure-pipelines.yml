@@ -25,6 +25,7 @@ steps:
     command: 'publish'
     publishWebProjects: true
     arguments: '--output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: true
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'Visual Studio Enterprise(d3f74c94-9e59-439e-875e-f64fc777bc96)'
