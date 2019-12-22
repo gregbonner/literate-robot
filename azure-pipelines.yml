@@ -31,5 +31,5 @@ steps:
     azureSubscription: 'Visual Studio Enterprise(d3f74c94-9e59-439e-875e-f64fc777bc96)'
     appType: 'webApp'
     appName: 'amcos-sandbox'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
